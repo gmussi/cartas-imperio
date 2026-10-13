@@ -1,18 +1,22 @@
 # Cartas do Império
 
-A card game about city-states, kingdoms and empires from history, loosely inspired by SolarCards. This repo is a static site that lists every card and has a print version for A4 paper. All card text is in Brazilian Portuguese.
+A card game about kingdoms and empires from history, loosely inspired by SolarCards. This repo is a static site that lists every card and has a print version for A4 paper. All card text is in Brazilian Portuguese.
 
 - **`index.html`**: browse the cards. Filter by type, search, sort by area, and switch the zoom level.
 - **`imprimir.html`**: print view. Each A4 sheet holds 9 cards (3 × 3) at real size with crop marks.
 
 Every card is **63 × 88 mm**, the same size as a Magic: The Gathering card.
 
+## Goal of the game
+
+Conquer the **Império Britânico**. To do so you need the kingdoms that made up the Commonwealth:
+Índia, Paquistão, Canadá, Estados Unidos, Nova Zelândia, Austrália and África do Sul.
+
 ## Card types
 
 | Type | Colour | Count |
 |---|---|---|
-| Cidade-Estado | green | 4 |
-| Reino | blue | 9 |
+| Reino | blue | 16 |
 | Império | red | 10 |
 
 Each card has a name, its official name, its type, its time period, its capital, its approximate area at its peak (km²), a short flavour text, a map, and a countryball in the top corner.

@@ -14,16 +14,6 @@
 // São aproximações didáticas, não mapas históricos rigorosos.
 
 export const REGIOES = {
-  // ───────────── CIDADES-ESTADO ─────────────
-  vaticano:  { paises: ["Vatican"],    ponto: [12.4534, 41.9029], raio: 1.6 },
-  monaco:    { paises: ["Monaco"],     ponto: [7.4246, 43.7384],  raio: 1.6 },
-  sanmarino: { paises: ["San Marino"], ponto: [12.4578, 43.9424], raio: 1.6 },
-  atenas: {
-    paises: ["Greece"],
-    recorte: [[23.2, 38.0], [23.4, 38.3], [23.6, 38.35], [24.15, 38.2], [24.15, 37.6], [23.95, 37.6], [23.6, 37.9], [23.35, 37.95]],
-    ponto: [23.7275, 37.9838], raio: 1.6
-  },
-
   // ───────────── REINOS ─────────────
   inglaterra: {
     paises: ["United Kingdom"],
@@ -66,6 +56,19 @@ export const REGIOES = {
     recorte: [[43, 42], [46.5, 42.5], [48.5, 42], [50, 40.5], [53, 40], [54, 38.5], [56, 39], [60, 38], [62.5, 37.5], [65, 37], [66.5, 35], [67, 33], [68, 30], [66.5, 28], [62, 25], [56, 24], [50, 25.5], [48, 29.5], [46, 29], [43, 32.5], [41, 34], [42, 36], [43.5, 37.2], [43, 39], [42.5, 41]],
     capital: [51.668, 32.6546]
   },
+  // ───── Reinos necessários para conquistar o Império Britânico ─────
+  india:    { paises: ["India"],    capital: [77.209, 28.6139] },
+  paquistao: { paises: ["Pakistan"], capital: [73.0479, 33.6844] },
+  canada:   { paises: ["Canada"],   capital: [-75.6972, 45.4215] },
+  eua: {
+    paises: ["United States of America"],
+    caixa: [-170, 24, -66, 72],
+    capital: [-77.0369, 38.9072]
+  },
+  novazelandia: { paises: ["New Zealand"], caixa: [165, -48, 179, -34], capital: [174.7762, -41.2865] },
+  australia:    { paises: ["Australia"],   caixa: [112, -44, 154, -9],   capital: [149.13, -35.2809] },
+  africadosul:  { paises: ["South Africa"], caixa: [16, -35.5, 33.5, -22], capital: [28.1881, -25.7461] },
+
   // ───────────── IMPÉRIOS ─────────────
   romano: {
     paises: ["Italy", "San Marino", "Vatican", "Monaco", "Malta", "France", "Spain", "Portugal", "Andorra", "United Kingdom",

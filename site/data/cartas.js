@@ -15,35 +15,6 @@
  * Os mapas e as bolas são gerados por `npm run build` (veja scripts/).
  */
 globalThis.CARTAS = [
-  // ───────────── CIDADES-ESTADO ─────────────
-  {
-    id: "vaticano", tipo: "cidade-estado",
-    nome: "Vaticano", nomeCompleto: "Estado da Cidade do Vaticano",
-    periodo: "1929 – hoje", auge: "atual", capital: "Cidade do Vaticano",
-    area: 0.49,
-    texto: "O menor país do mundo fica dentro de Roma e é governado pelo Papa."
-  },
-  {
-    id: "monaco", tipo: "cidade-estado",
-    nome: "Mônaco", nomeCompleto: "Principado de Mônaco",
-    periodo: "1297 – hoje", auge: "atual", capital: "Mônaco",
-    area: 2.08,
-    texto: "Governado pela família Grimaldi há mais de 700 anos, à beira do Mediterrâneo."
-  },
-  {
-    id: "sanmarino", tipo: "cidade-estado",
-    nome: "San Marino", nomeCompleto: "Sereníssima República de San Marino",
-    periodo: "301 – hoje", auge: "atual", capital: "Cidade de San Marino",
-    area: 61,
-    texto: "Considerada a república mais antiga do mundo, no alto do Monte Titano."
-  },
-  {
-    id: "atenas", tipo: "cidade-estado",
-    nome: "Atenas", nomeCompleto: "Pólis de Atenas",
-    periodo: "c. 508 – 322 a.C.", auge: "séc. V a.C.", capital: "Atenas",
-    area: 2500,
-    texto: "Berço da democracia, a pólis dominava toda a península da Ática."
-  },
 
   // ───────────── REINOS ─────────────
   {
@@ -108,6 +79,58 @@ globalThis.CARTAS = [
     periodo: "1501 – 1736", auge: "1600", capital: "Isfahan",
     area: 2850000,
     texto: "Os xás safávidas fizeram de Isfahan uma das cidades mais belas do mundo."
+  },
+
+
+  // ───── Reinos necessários para conquistar o Império Britânico ─────
+  {
+    id: "india", tipo: "reino",
+    nome: "Índia", nomeCompleto: "República da Índia",
+    periodo: "1947 – hoje", auge: "atual", capital: "Nova Délhi",
+    area: 3287263,
+    texto: "A \u201cjoia da coroa\u201d britânica até a independência, em 1947."
+  },
+  {
+    id: "paquistao", tipo: "reino",
+    nome: "Paquistão", nomeCompleto: "República Islâmica do Paquistão",
+    periodo: "1947 – hoje", auge: "atual", capital: "Islamabad",
+    area: 881913,
+    texto: "Nascido da partilha da Índia Britânica, no mesmo dia em que a Índia."
+  },
+  {
+    id: "canada", tipo: "reino",
+    nome: "Canadá", nomeCompleto: "Domínio do Canadá",
+    periodo: "1867 – hoje", auge: "atual", capital: "Ottawa",
+    area: 9984670,
+    texto: "O primeiro domínio do Império, com o segundo maior território do mundo."
+  },
+  {
+    id: "eua", tipo: "reino",
+    nome: "Estados Unidos", nomeCompleto: "Estados Unidos da América",
+    periodo: "1776 – hoje", auge: "atual", capital: "Washington, D.C.",
+    area: 9833517,
+    texto: "Treze colônias britânicas que se rebelaram em 1776 e viraram uma potência."
+  },
+  {
+    id: "novazelandia", tipo: "reino",
+    nome: "Nova Zelândia", nomeCompleto: "Domínio da Nova Zelândia",
+    periodo: "1907 – hoje", auge: "atual", capital: "Wellington",
+    area: 268021,
+    texto: "Terra dos maori e dos kiwis, uma das colônias mais fiéis à Coroa."
+  },
+  {
+    id: "australia", tipo: "reino",
+    nome: "Austrália", nomeCompleto: "Comunidade da Austrália",
+    periodo: "1901 – hoje", auge: "atual", capital: "Camberra",
+    area: 7692024,
+    texto: "Começou como colônia penal britânica e virou uma nação-continente."
+  },
+  {
+    id: "africadosul", tipo: "reino",
+    nome: "África do Sul", nomeCompleto: "União da África do Sul",
+    periodo: "1910 – hoje", auge: "atual", capital: "Pretória",
+    area: 1221037,
+    texto: "Ouro e diamantes atraíram os britânicos para o extremo sul da África."
   },
 
   // ───────────── IMPÉRIOS ─────────────

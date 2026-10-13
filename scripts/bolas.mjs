@@ -68,14 +68,6 @@ const escudo = (cx, cy, w, fill, stroke) =>
 
 // ───────────── Bandeiras ─────────────
 export const BANDEIRAS = {
-  vaticano: faixasV(["#FFE000", "#FFFFFF"]) +
-    `<g transform="translate(150 155) rotate(40)"><rect x="-3" y="-24" width="6" height="40" fill="#D4AF37"/><circle cx="0" cy="-26" r="7" fill="none" stroke="#D4AF37" stroke-width="4"/><rect x="0" y="8" width="10" height="5" fill="#D4AF37"/></g>
-     <g transform="translate(150 155) rotate(-40)"><rect x="-3" y="-24" width="6" height="40" fill="#A9A9A9"/><circle cx="0" cy="-26" r="7" fill="none" stroke="#A9A9A9" stroke-width="4"/><rect x="-10" y="8" width="10" height="5" fill="#A9A9A9"/></g>`,
-  monaco: faixasH(["#CE1126", "#FFFFFF"]),
-  sanmarino: faixasH(["#FFFFFF", "#5EB6E4"]),
-  atenas: fundo("#C8642B") +
-    `<g stroke="#1a1a1a" stroke-width="5" fill="none"><path d="M0,132 h20 v-12 h-10 v6 M30,132 h20 v-12 h-10 v6 M60,132 h20 v-12 h-10 v6 M90,132 h20 v-12 h-10 v6 M120,132 h20 v-12 h-10 v6 M150,132 h20 v-12 h-10 v6 M180,132 h20 v-12 h-10 v6"/></g>` +
-    texto(100, 174, "ΑΘΕ", "#1a1a1a", 30),
   inglaterra: fundo("#FFFFFF") + rect(84, TOP, 32, H, "#CE1124") + rect(0, 94, W, 32, "#CE1124"),
   escocia: fundo("#005EB8") + `<path d="M0,20 L200,200 M200,20 L0,200" stroke="#fff" stroke-width="32"/>`,
   franca: fundo("#1F3F94") + flor(62, 72, 0.9, "#F2C230") + flor(138, 72, 0.9, "#F2C230") + flor(100, 168, 0.9, "#F2C230"),
@@ -109,6 +101,28 @@ export const BANDEIRAS = {
     `<g fill="#C8102E">${[[55, 67], [80, 94], [120, 136], [145, 163]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="13"/><circle cx="${200 - x}" cy="${y}" r="13"/>`).join("")}</g>`,
   portugues: fundo("#FFFFFF") + `<circle cx="100" cy="158" r="30" fill="#0038A8"/>` + esferaArmilar(100, 158, 24, "#F2C230") +
     escudo(100, 154, 18, "#fff", "#C8102E"),
+
+  // ── Reinos necessários para conquistar o Império Britânico ──
+  india: faixasH(["#FF9933", "#FFFFFF", "#138808"]) +
+    `<g transform="translate(103 110)"><circle r="10" fill="none" stroke="#000080" stroke-width="2.5"/>${Array.from({ length: 12 }, (_, i) => `<line x1="0" y1="-10" x2="0" y2="10" stroke="#000080" stroke-width="1.2" transform="rotate(${i * 15})"/>`).join("")}</g>`,
+  paquistao: rect(0, TOP, 52, H, "#FFFFFF") + rect(52, TOP, 148, H, "#01411C") +
+    crescente(128, 112, 34, "#fff", "#01411C", 12, -4, 0.8) + estrela(158, 86, 12, "#fff", 5, 0.42, -60),
+  canada: rect(0, TOP, 50, H, "#D52B1E") + rect(50, TOP, 100, H, "#FFFFFF") + rect(150, TOP, 50, H, "#D52B1E") +
+    `<path transform="translate(100 150) scale(1.15)" fill="#D52B1E" d="M0,-30 L6,-18 L14,-22 L11,-6 L22,-12 L19,0 L26,3 L10,14 L12,20 L2,18 L2,30 L-2,30 L-2,18 L-12,20 L-10,14 L-26,3 L-19,0 L-22,-12 L-11,-6 L-14,-22 L-6,-18 Z"/>`,
+  eua: Array.from({ length: 13 }, (_, i) => rect(0, TOP + (H / 13) * i, W, H / 13 + 0.5, i % 2 ? "#FFFFFF" : "#B22234")).join("") +
+    rect(0, TOP, 100, (H / 13) * 7, "#3C3B6E") +
+    Array.from({ length: 12 }, (_, k) => estrela(14 + (k % 4) * 24, 36 + Math.floor(k / 4) * 28, 6, "#fff")).join(""),
+  novazelandia: fundo("#00247D") + unionJack(0, TOP, 100, 90) +
+    [[150, 52, 8], [128, 98, 8], [172, 92, 8], [150, 150, 9]].map(([x, y, r]) =>
+      estrela(x, y, r * 1.45, "#fff") + estrela(x, y, r, "#CC142B")).join(""),
+  australia: fundo("#012169") + unionJack(0, TOP, 100, 90) +
+    estrela(50, 150, 17, "#fff", 7, 0.45) +
+    [[150, 52, 8], [128, 96, 8], [172, 90, 8], [150, 150, 8]].map(([x, y, r]) => estrela(x, y, r, "#fff", 7, 0.45)).join("") +
+    estrela(164, 118, 4, "#fff"),
+  africadosul: rect(0, TOP, W, 90, "#E03C31") + rect(0, 110, W, 90, "#001489") +
+    `<g fill="none"><path d="M-10,0 L100,110 L-10,220 M100,110 H210" stroke="#fff" stroke-width="56"/>
+     <path d="M-10,0 L100,110 L-10,220 M100,110 H210" stroke="#007749" stroke-width="36"/></g>
+     <polygon points="-10,20 -10,200 84,110" fill="#FFB612"/><polygon points="-10,44 -10,176 62,110" fill="#000"/>`,
 };
 
 // ───────────── Olhos e expressões ─────────────
@@ -184,31 +198,6 @@ const xicara = (liquido, x = 170, y = 172) => `<g transform="translate(${x} ${y}
     <path d="M-20,0 H20" stroke="#2B59C3" stroke-width="3"/></g>`;
 
 const ACESSORIOS = {
-  vaticano: { frente: [`<g transform="translate(100 28) rotate(-8)">
-      <path d="M-28,6 L-28,-26 L0,-58 L28,-26 L28,6 Z" fill="#FFFFFF" stroke="#111" stroke-width="4"/>
-      <rect x="-4" y="-44" width="8" height="40" fill="#D4AF37"/><rect x="-14" y="-32" width="28" height="8" fill="#D4AF37"/></g>`] },
-
-  monaco: {
-    atras: [`<line x1="14" y1="205" x2="14" y2="52" stroke="#555" stroke-width="5" stroke-linecap="round"/>`],
-    frente: [(() => {
-      let s = `<g transform="translate(-12 54)">`;
-      for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++)
-        s += `<rect x="${c * 6.5}" y="${r * 9}" width="6.5" height="9" fill="${(r + c) % 2 ? "#fff" : "#111"}"/>`;
-      return s + `<rect width="26" height="27" fill="none" ${T}/></g>`;
-    })()],
-  },
-
-  sanmarino: { frente: [`<g transform="translate(30 166)">
-      <path d="M-8,-58 V-40" stroke="#555" stroke-width="2"/><path d="M-8,-58 L6,-54 L-8,-50 Z" fill="#5EB6E4" stroke="#111" stroke-width="1.5"/>
-      <path d="M-16,-40 h6 v6 h4 v-6 h6 v6 h4 v-6 h6 v6 h4 v-6 h6 V36 H-16 Z" fill="#D8CFC0" ${T}/>
-      <path d="M-4,36 V22 a6,6 0 0 1 12,0 V36" fill="#5a4636" ${T}/>
-      <rect x="-3" y="-20" width="6" height="10" fill="#5a4636"/></g>`] },
-
-  atenas: { frente: [louros("#8A9A3B"), `<g transform="translate(172 168)">
-      <path d="M-7,-30 C-18,-30 -18,-14 -10,-10 M7,-30 C18,-30 18,-14 10,-10" fill="none" stroke="#111" stroke-width="3"/>
-      <path d="M-7,-34 h14 v8 C18,-18 20,0 12,16 L5,30 h-10 L-12,16 C-20,0 -18,-18 -7,-26 Z" fill="#C8642B" ${T}/>
-      <path d="M-15,-2 H15 M-14,8 H14" stroke="#1a1a1a" stroke-width="4"/></g>`] },
-
   inglaterra: { frente: [`<g transform="translate(98 30) rotate(-8)">
       <ellipse cx="0" cy="4" rx="48" ry="8" fill="#222" ${T}/>
       <path d="M-30,4 C-30,-42 30,-42 30,4 Z" fill="#222" ${T}/>
@@ -388,16 +377,90 @@ const ACESSORIOS = {
       <path d="M-34,8 H34 L24,26 H-24 Z" fill="#8B5A2B" ${T}/>
       <path d="M-28,16 H28" stroke="#5a3a1a" stroke-width="2"/></g>`] },
 
+
+  // ── Reinos necessários para conquistar o Império Britânico ──
+  india: { frente: [`<g transform="translate(100 32) rotate(-6)">
+      <path d="M-4,-44 C-8,-62 6,-66 12,-74 C16,-60 10,-52 6,-44 Z" fill="#fff" ${T}/>
+      <path d="M-40,8 C-44,-24 -18,-46 4,-44 C30,-42 44,-22 40,8 Z" fill="#FF9933" ${T}/>
+      <path d="M-38,-2 C-10,-14 10,-14 38,-2 M-40,6 C-10,-6 10,-6 40,6" fill="none" stroke="#CC6600" stroke-width="3"/>
+      <circle cx="0" cy="-8" r="6" fill="#C8102E" ${T}/></g>`,
+    `<g transform="translate(172 168)">
+      <rect x="-28" y="-6" width="6" height="30" fill="#F4EFE6" ${T}/><rect x="22" y="-6" width="6" height="30" fill="#F4EFE6" ${T}/>
+      <path d="M-30,24 H30 V32 H-30 Z" fill="#E6DFD0" ${T}/>
+      <path d="M-15,24 V8 C-15,-14 15,-14 15,8 V24 Z" fill="#F4EFE6" ${T}/>
+      <path d="M0,-12 V-26" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-5,24 V16 a5,5 0 0 1 10,0 V24" fill="#8a8a8a"/></g>`] },
+
+  paquistao: { frente: [`<g transform="translate(100 32) rotate(-6)">
+      <path d="M-36,8 L-30,-28 Q-14,-40 0,-34 Q14,-40 30,-28 L36,8 Z" fill="#7A7A7A" ${T}/>
+      <path d="M-33,-6 H33" stroke="#4a4a4a" stroke-width="3"/></g>`,
+    `<g transform="translate(34 168) rotate(-28)">
+      <rect x="-6" y="-48" width="12" height="30" rx="3" fill="#7A4A1F" ${T}/>
+      <path d="M-13,-18 H13 L11,30 Q0,37 -11,30 Z" fill="#E8C98A" ${T}/>
+      <path d="M0,-16 V30" stroke="#B8935A" stroke-width="2"/></g>`] },
+
+  canada: { frente: [`<g transform="translate(100 34) rotate(-6)">
+      <ellipse cx="0" cy="4" rx="54" ry="9" fill="#8B5E34" ${T}/>
+      <path d="M-26,4 C-26,-30 -10,-42 0,-40 C10,-42 26,-30 26,4 Z" fill="#8B5E34" ${T}/>
+      <rect x="-26" y="-6" width="52" height="8" fill="#3B2A1E"/>
+      <path d="M-14,-26 Q0,-33 14,-26" fill="none" stroke="#6b4423" stroke-width="3"/></g>`,
+    `<g transform="translate(168 172) rotate(18)">
+      <path d="M-4,-52 L5,-52 L5,22 Q5,34 17,34 L32,34 L32,43 L12,43 Q-5,43 -5,26 Z" fill="#D9A35B" ${T}/></g>
+     <ellipse cx="146" cy="199" rx="10" ry="4.5" fill="#111"/>`] },
+
+  eua: { frente: [`<g transform="translate(100 30) rotate(-8)">
+      <ellipse cx="0" cy="4" rx="50" ry="8" fill="#fff" ${T}/>
+      <path d="M-28,4 L-24,-56 H24 L28,4 Z" fill="#fff" ${T}/>
+      <path d="M-14,-40 L-17,3 M0,-40 V4 M14,-40 L17,3" stroke="#B22234" stroke-width="7"/>
+      <path d="M-24,-56 H24 L25,-40 H-25 Z" fill="#3C3B6E" ${T}/>
+      <path d="M-27,-4 H27 L28,4 H-28 Z" fill="#3C3B6E"/>
+      <circle cx="-8" cy="-48" r="2" fill="#fff"/><circle cx="2" cy="-48" r="2" fill="#fff"/><circle cx="12" cy="-48" r="2" fill="#fff"/></g>`,
+    `<g transform="translate(172 176)">
+      <path d="M-24,0 C-24,-28 24,-28 24,0 Z" fill="#D9963B" ${T}/>
+      <g fill="#FCE9B8"><ellipse cx="-9" cy="-14" rx="2.4" ry="1.3"/><ellipse cx="2" cy="-18" rx="2.4" ry="1.3"/><ellipse cx="11" cy="-11" rx="2.4" ry="1.3"/></g>
+      <path d="M-27,0 q6.75,10 13.5,0 q6.75,10 13.5,0 q6.75,10 13.5,0 q6.75,10 13.5,0 V3 H-27 Z" fill="#7CB342" ${T}/>
+      <rect x="-26" y="6" width="52" height="9" rx="4" fill="#5A3318" ${T}/>
+      <path d="M-24,16 H24 Q22,27 0,27 Q-22,27 -24,16 Z" fill="#D9963B" ${T}/></g>`] },
+
+  novazelandia: { frente: [`<g transform="translate(168 172)">
+      <path d="M-6,20 V32 M7,20 V32" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+      <path d="M-20,2 L-48,14" stroke="#E8C98A" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="0" cy="4" rx="22" ry="18" fill="#7A5230" ${T}/>
+      <circle cx="-12" cy="-2" r="2.2" fill="#fff"/>
+      <path d="M-6,-10 q8,-4 16,2 M-4,0 q8,-4 18,2" fill="none" stroke="#5a3a1f" stroke-width="2"/></g>`,
+    `<g transform="translate(38 172) rotate(-30)">
+      <ellipse rx="27" ry="15" fill="#7A3E1D" ${T}/>
+      <path d="M-9,0 H9 M-5,-4 V4 M0,-4 V4 M5,-4 V4" stroke="#fff" stroke-width="2"/>
+      <path d="M-26,-4 Q0,-12 26,-4" fill="none" stroke="#111" stroke-width="2"/></g>`] },
+
+  australia: { frente: [`<g transform="translate(100 34) rotate(-8)">
+      <ellipse cx="0" cy="4" rx="56" ry="10" fill="#9A6B3C" ${T}/>
+      <path d="M-28,4 C-30,-30 -10,-40 0,-36 C10,-40 30,-30 28,4 Z" fill="#9A6B3C" ${T}/>
+      <rect x="-28" y="-4" width="56" height="7" fill="#3B2A1E"/>
+      <path d="M-46,8 V18 M-38,10 V20 M-30,11 V21" stroke="#555" stroke-width="1.5"/>
+      <rect x="-49" y="17" width="6" height="8" rx="2" fill="#C9A06A" ${T}/><rect x="-41" y="19" width="6" height="8" rx="2" fill="#C9A06A" ${T}/><rect x="-33" y="20" width="6" height="8" rx="2" fill="#C9A06A" ${T}/></g>`,
+    `<g transform="translate(168 176) rotate(-20)">
+      <path d="M-32,-8 Q0,-36 32,-8 L27,3 Q0,-19 -27,3 Z" fill="#C26A2B" ${T}/>
+      <path d="M-18,-8 l4,6 M-4,-15 l3,7 M10,-12 l2,7" stroke="#F2C230" stroke-width="2.5" stroke-linecap="round"/></g>`] },
+
+  africadosul: { frente: [`<g transform="translate(46 46)">
+      ${[0, 45, 90, 135, 180, 225, 270, 315].map((a) => `<ellipse cx="0" cy="-13" rx="7" ry="17" fill="#F25C8A" stroke="#111" stroke-width="2" transform="rotate(${a})"/>`).join("")}
+      <circle r="9" fill="#7A1F3A" ${T}/><circle r="3" fill="#F7C948"/></g>`,
+    `<g transform="translate(164 174) rotate(-32)">
+      <path d="M-34,-5 H18 L40,-15 V15 L18,5 H-34 Z" fill="#F2C230" ${T}/>
+      <rect x="-42" y="-6" width="9" height="12" rx="2" fill="#111"/>
+      <path d="M-12,-5 V5 M2,-5 V5" stroke="#B8860B" stroke-width="2.5"/></g>`] },
 };
 
 // Expressão de cada bola.
 export const EXPRESSAO_POR_CARTA = {
-  vaticano: "sereno", monaco: "oculos", sanmarino: "feliz", atenas: "normal",
   inglaterra: "convencido", escocia: "bravo", franca: "convencido", portugal: "feliz", prussia: "bravo",
   hungria: "determinado", polonia: "determinado", russia: "desconfiado", persia: "sereno",
   romano: "convencido", bizantino: "triste", otomano: "bravo",
   mongol: "bravo", aquemenida: "sereno", macedonico: "determinado", britanico: "convencido", russo: "desconfiado",
   espanhol: "surpreso", portugues: "piscando",
+  india: "sereno", paquistao: "determinado", canada: "feliz", eua: "convencido",
+  novazelandia: "normal", australia: "piscando", africadosul: "determinado",
 };
 
 export function bolaSVG(id) {

@@ -73,12 +73,6 @@ export const BANDEIRAS = {
      <g transform="translate(150 155) rotate(-40)"><rect x="-3" y="-24" width="6" height="40" fill="#A9A9A9"/><circle cx="0" cy="-26" r="7" fill="none" stroke="#A9A9A9" stroke-width="4"/><rect x="-10" y="8" width="10" height="5" fill="#A9A9A9"/></g>`,
   monaco: faixasH(["#CE1126", "#FFFFFF"]),
   sanmarino: faixasH(["#FFFFFF", "#5EB6E4"]),
-  singapura: faixasH(["#EF3340", "#FFFFFF"]) +
-    crescente(48, 66, 17, "#fff", "#EF3340", 6, -1, 0.85) +
-    [0, 1, 2, 3, 4].map((i) => {
-      const a = (-90 + i * 72) * Math.PI / 180;
-      return estrela(66 + 9 * Math.cos(a), 66 + 9 * Math.sin(a), 4.2, "#fff");
-    }).join(""),
   atenas: fundo("#C8642B") +
     `<g stroke="#1a1a1a" stroke-width="5" fill="none"><path d="M0,132 h20 v-12 h-10 v6 M30,132 h20 v-12 h-10 v6 M60,132 h20 v-12 h-10 v6 M90,132 h20 v-12 h-10 v6 M120,132 h20 v-12 h-10 v6 M150,132 h20 v-12 h-10 v6 M180,132 h20 v-12 h-10 v6"/></g>` +
     texto(100, 174, "ΑΘΕ", "#1a1a1a", 30),
@@ -93,10 +87,6 @@ export const BANDEIRAS = {
   polonia: faixasH(["#FFFFFF", "#DC143C"]),
   russia: faixasH(["#FFFFFF", "#0039A6", "#D52B1E"]),
   persia: fundo("#2E7D32") + sol(100, 160, 13, "#F4C430", 14),
-  aksum: fundo("#6B1E3A") + `<circle cx="100" cy="146" r="8" fill="#E8B923"/>` + crescente(100, 168, 18, "#E8B923", "#6B1E3A", 0, -8, 0.85),
-  congo: fundo("#C8102E") +
-    `<g fill="#fff" transform="translate(100 150)"><path d="M-6,-30 L6,-30 L4,-6 L30,-6 L30,6 L4,6 L6,30 L-6,30 L-4,6 L-30,6 L-30,-6 L-4,-6 Z"/></g>`,
-  havai: faixasH(["#FFFFFF", "#C8102E", "#012169", "#FFFFFF", "#C8102E", "#012169", "#FFFFFF", "#C8102E"]) + unionJack(0, TOP, 105, 90),
   romano: fundo("#9E1B1B") + `<rect x="10" y="${TOP + 6}" width="180" height="${H - 12}" fill="none" stroke="#E2B13C" stroke-width="5"/>` +
     texto(100, 180, "SPQR", "#E2B13C", 36),
   bizantino: fundo("#B22222") + rect(92, TOP, 16, H, "#F2C230") + rect(0, 112, W, 16, "#F2C230") +
@@ -119,12 +109,6 @@ export const BANDEIRAS = {
     `<g fill="#C8102E">${[[55, 67], [80, 94], [120, 136], [145, 163]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="13"/><circle cx="${200 - x}" cy="${y}" r="13"/>`).join("")}</g>`,
   portugues: fundo("#FFFFFF") + `<circle cx="100" cy="158" r="30" fill="#0038A8"/>` + esferaArmilar(100, 158, 24, "#F2C230") +
     escudo(100, 154, 18, "#fff", "#C8102E"),
-  inca: faixasH(["#E31B23", "#F7931E", "#FFE600", "#2BA84A", "#2E9BD6", "#1C4FA1", "#6A2C91"]),
-  qing: fundo("#F6D23C") + `<circle cx="52" cy="62" r="11" fill="#D7261E"/>` +
-    `<path d="M30,175 C60,130 85,190 110,150 S150,120 170,150 S175,185 150,180" fill="none" stroke="#1F4E9C" stroke-width="10" stroke-linecap="round"/>` +
-    `<circle cx="168" cy="146" r="7" fill="#1F4E9C"/>`,
-  brasil: fundo("#009B3A") + `<polygon points="100,30 192,110 100,190 8,110" fill="#FEDF00"/>` +
-    escudo(100, 150, 34, "#009B3A", "#1F3F94") + esferaArmilar(100, 150, 11, "#FEDF00"),
 };
 
 // ───────────── Olhos e expressões ─────────────
@@ -220,13 +204,6 @@ const ACESSORIOS = {
       <path d="M-4,36 V22 a6,6 0 0 1 12,0 V36" fill="#5a4636" ${T}/>
       <rect x="-3" y="-20" width="6" height="10" fill="#5a4636"/></g>`] },
 
-  singapura: { frente: [`<g transform="translate(172 168)">
-      <path d="M6,-40 L-2,-4" stroke="#111" stroke-width="3"/>
-      <path d="M-16,-22 H16 L10,30 H-10 Z" fill="#F48FB1" ${T}/>
-      <path d="M-16,-22 H16" stroke="#fff" stroke-width="3"/>
-      <path d="M10,-22 L24,-34 L26,-20 Z" fill="#F7C948" ${T}/>
-      <circle cx="-12" cy="-28" r="6" fill="#C8102E" ${T}/></g>`] },
-
   atenas: { frente: [louros("#8A9A3B"), `<g transform="translate(172 168)">
       <path d="M-7,-30 C-18,-30 -18,-14 -10,-10 M7,-30 C18,-30 18,-14 10,-10" fill="none" stroke="#111" stroke-width="3"/>
       <path d="M-7,-34 h14 v8 C18,-18 20,0 12,16 L5,30 h-10 L-12,16 C-20,0 -18,-18 -7,-26 Z" fill="#C8642B" ${T}/>
@@ -321,30 +298,6 @@ const ACESSORIOS = {
       <circle cx="0" cy="2" r="18" fill="#B5172B" ${T}/>
       <path d="M-9,-6 Q-4,-11 2,-10" fill="none" stroke="#fff" stroke-width="3" opacity=".5" stroke-linecap="round"/></g>`] },
 
-  aksum: { atras: [`<g>
-      <path d="M2,212 V-12 Q16,-36 30,-12 V212 Z" fill="#A39787" ${T}/>
-      ${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="8" y="${-2 + i * 26}" width="6" height="9" fill="#6f6557"/><rect x="18" y="${-2 + i * 26}" width="6" height="9" fill="#6f6557"/><path d="M4,${14 + i * 26} H28" stroke="#6f6557" stroke-width="2"/>`).join("")}</g>`] },
-
-  congo: { frente: [`<g transform="translate(168 172)">
-      <path d="M-22,-14 L22,-14 L15,26 L-15,26 Z" fill="#8B5A2B" ${T}/>
-      <path d="M-20,-8 L-11,22 L-2,-8 L7,22 L16,-8" fill="none" stroke="#F2C230" stroke-width="2.5"/>
-      <ellipse cx="0" cy="-14" rx="22" ry="7" fill="#E8D3A8" ${T}/></g>`] },
-
-  havai: { frente: [
-    // flor de hibisco no "cabelo"
-    `<g transform="translate(46 44)">${[0, 72, 144, 216, 288].map((a) => `<ellipse cx="0" cy="-11" rx="8" ry="12" fill="#F25C8A" stroke="#111" stroke-width="2" transform="rotate(${a})"/>`).join("")}<circle r="5" fill="#F7C948" stroke="#111" stroke-width="2"/></g>`,
-    // colar de flores (lei)
-    (() => {
-      const cores = ["#F25C8A", "#F7C948", "#FF8A3D", "#fff"];
-      let s = "";
-      for (let i = 0; i <= 12; i++) {
-        const a = ((25 + i * 10.8) * Math.PI) / 180;
-        const x = 100 + 80 * Math.cos(a), y = 110 + 80 * Math.sin(a) - 8;
-        s += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="8" fill="${cores[i % 4]}" stroke="#111" stroke-width="2"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="2.5" fill="#B8860B"/>`;
-      }
-      return s;
-    })()] },
-
   romano: { frente: [louros("#4E8B3A"), `<g transform="translate(174 166) rotate(28)">
       <path d="M-5,-40 L5,-40 L6,8 L0,16 L-6,8 Z" fill="#D8DEE4" ${T}/>
       <path d="M0,-36 V8" stroke="#9aa4ae" stroke-width="2"/>
@@ -435,40 +388,16 @@ const ACESSORIOS = {
       <path d="M-34,8 H34 L24,26 H-24 Z" fill="#8B5A2B" ${T}/>
       <path d="M-28,16 H28" stroke="#5a3a1a" stroke-width="2"/></g>`] },
 
-  inca: { frente: [`<g>
-      <path d="M86,22 C80,-4 84,-22 92,-34 C96,-18 96,4 94,22 Z" fill="#2BA84A" ${T}/>
-      <path d="M106,22 C108,-2 116,-18 126,-28 C126,-10 120,8 112,24 Z" fill="#F7931E" ${T}/>
-      <path d="M26,70 Q100,4 174,70" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
-      <path d="M26,70 Q100,4 174,70" fill="none" stroke="#7B3F00" stroke-width="9" stroke-linecap="round"/>
-      ${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="${86 + i * 5}" y="38" width="4.5" height="${16 + (i % 2) * 3}" fill="#C8102E" stroke="#111" stroke-width="1.2"/>`).join("")}</g>`,
-    `<g transform="translate(32 172)">
-      <path d="M-12,14 V32 M-4,16 V32 M8,16 V32 M15,14 V32" stroke="#111" stroke-width="4" stroke-linecap="round"/>
-      <ellipse cx="2" cy="6" rx="22" ry="13" fill="#F5EFE0" ${T}/>
-      <rect x="10" y="-30" width="11" height="34" rx="5" fill="#F5EFE0" ${T}/>
-      <ellipse cx="20" cy="-30" rx="11" ry="7" fill="#F5EFE0" ${T}/>
-      <path d="M13,-36 l-2,-10 l6,7 M20,-37 l1,-10 l4,8" fill="#F5EFE0" ${T}/>
-      <circle cx="22" cy="-31" r="1.6" fill="#111"/>
-      <path d="M-20,2 h6 M-20,8 h6" stroke="#C8102E" stroke-width="3"/></g>`] },
-
-  qing: { frente: [`<g transform="translate(100 30) rotate(-6)">
-      <path d="M-50,8 C-30,-6 -14,-26 0,-30 C14,-26 30,-6 50,8 Z" fill="#E8C96A" ${T}/>
-      <path d="M0,-28 L-30,0 M0,-28 L-16,4 M0,-28 L-4,6 M0,-28 L8,6 M0,-28 L20,4 M0,-28 L34,0" stroke="#D7261E" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="0" cy="-32" r="7" fill="#D7261E" ${T}/></g>`] },
-
-  brasil: { frente: [`<g transform="translate(100 28) rotate(-6)">
-      <path d="M-58,6 C-34,-6 -22,-42 0,-42 C22,-42 34,-6 58,6 C20,-2 -20,-2 -58,6 Z" fill="#1a1a1a" ${T}/>
-      <circle cx="0" cy="-16" r="9" fill="#009B3A" ${T}/><circle cx="0" cy="-16" r="4.5" fill="#FEDF00"/></g>`,
-    xicara("#3B1F0E")] },
 };
 
 // Expressão de cada bola.
 export const EXPRESSAO_POR_CARTA = {
-  vaticano: "sereno", monaco: "oculos", sanmarino: "feliz", singapura: "convencido", atenas: "normal",
+  vaticano: "sereno", monaco: "oculos", sanmarino: "feliz", atenas: "normal",
   inglaterra: "convencido", escocia: "bravo", franca: "convencido", portugal: "feliz", prussia: "bravo",
-  hungria: "determinado", polonia: "determinado", russia: "desconfiado", persia: "sereno", aksum: "surpreso",
-  congo: "piscando", havai: "feliz", romano: "convencido", bizantino: "triste", otomano: "bravo",
+  hungria: "determinado", polonia: "determinado", russia: "desconfiado", persia: "sereno",
+  romano: "convencido", bizantino: "triste", otomano: "bravo",
   mongol: "bravo", aquemenida: "sereno", macedonico: "determinado", britanico: "convencido", russo: "desconfiado",
-  espanhol: "surpreso", portugues: "piscando", inca: "normal", qing: "desconfiado", brasil: "feliz",
+  espanhol: "surpreso", portugues: "piscando",
 };
 
 export function bolaSVG(id) {

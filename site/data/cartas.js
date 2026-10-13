@@ -38,13 +38,6 @@ globalThis.CARTAS = [
     texto: "Considerada a república mais antiga do mundo, no alto do Monte Titano."
   },
   {
-    id: "singapura", tipo: "cidade-estado",
-    nome: "Singapura", nomeCompleto: "República de Singapura",
-    periodo: "1965 – hoje", auge: "atual", capital: "Singapura",
-    area: 735,
-    texto: "Porto estratégico entre dois oceanos que se tornou uma potência financeira."
-  },
-  {
     id: "atenas", tipo: "cidade-estado",
     nome: "Atenas", nomeCompleto: "Pólis de Atenas",
     periodo: "c. 508 – 322 a.C.", auge: "séc. V a.C.", capital: "Atenas",
@@ -115,27 +108,6 @@ globalThis.CARTAS = [
     periodo: "1501 – 1736", auge: "1600", capital: "Isfahan",
     area: 2850000,
     texto: "Os xás safávidas fizeram de Isfahan uma das cidades mais belas do mundo."
-  },
-  {
-    id: "aksum", tipo: "reino",
-    nome: "Axum", nomeCompleto: "Reino de Axum",
-    periodo: "c. 100 – 940", auge: "350", capital: "Axum",
-    area: 1250000,
-    texto: "Potência comercial do Mar Vermelho que cunhava as próprias moedas de ouro."
-  },
-  {
-    id: "congo", tipo: "reino",
-    nome: "Congo", nomeCompleto: "Reino do Congo",
-    periodo: "1390 – 1914", auge: "1650", capital: "Mbanza Kongo",
-    area: 129400,
-    texto: "Reino da África Central que enviava embaixadores ao Papa e a Portugal."
-  },
-  {
-    id: "havai", tipo: "reino",
-    nome: "Havaí", nomeCompleto: "Reino do Havaí",
-    periodo: "1795 – 1893", auge: "1810", capital: "Honolulu",
-    area: 28311,
-    texto: "Unificado por Kamehameha I, foi derrubado por um golpe apoiado pelos EUA."
   },
 
   // ───────────── IMPÉRIOS ─────────────
@@ -208,27 +180,6 @@ globalThis.CARTAS = [
     periodo: "1415 – 1999", auge: "1815", capital: "Lisboa",
     area: 10400000,
     texto: "O primeiro império marítimo global, com terras em quatro continentes."
-  },
-  {
-    id: "inca", tipo: "imperio",
-    nome: "Inca", nomeCompleto: "Tawantinsuyu (Império Inca)",
-    periodo: "1438 – 1533", auge: "1527", capital: "Cusco",
-    area: 2000000,
-    texto: "Unido por cerca de 40 mil km de estradas cruzando a Cordilheira dos Andes."
-  },
-  {
-    id: "qing", tipo: "imperio",
-    nome: "Qing", nomeCompleto: "Grande Império Qing",
-    periodo: "1644 – 1912", auge: "1790", capital: "Pequim",
-    area: 14700000,
-    texto: "A última dinastia imperial da China, fundada pelos manchus."
-  },
-  {
-    id: "brasil", tipo: "imperio",
-    nome: "Brasil", nomeCompleto: "Império do Brasil",
-    periodo: "1822 – 1889", auge: "1889", capital: "Rio de Janeiro",
-    area: 8337218,
-    texto: "Governado por D. Pedro I e D. Pedro II, foi a maior monarquia das Américas."
   }
 ];
 

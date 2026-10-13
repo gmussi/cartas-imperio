@@ -11,9 +11,9 @@ Every card is **63 × 88 mm**, the same size as a Magic: The Gathering card.
 
 | Type | Colour | Count |
 |---|---|---|
-| Cidade-Estado | green | 5 |
-| Reino | blue | 12 |
-| Império | red | 13 |
+| Cidade-Estado | green | 4 |
+| Reino | blue | 9 |
+| Império | red | 10 |
 
 Each card has a name, its official name, its type, its time period, its capital, its approximate area at its peak (km²), a short flavour text, a map, and a countryball in the top corner.
 

@@ -1,0 +1,131 @@
+:root {
+  --fundo: #1d1a17;
+  --fundo-2: #26221e;
+  --texto: #efe6d2;
+  --texto-suave: #b9ad96;
+  --linha: #3d362f;
+  --ouro: #e2b13c;
+  --cidade: #1e8a70;
+  --reino: #2b59c3;
+  --imperio: #b3261e;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 50% -200px, #3a2f24 0%, transparent 70%),
+    var(--fundo);
+  color: var(--texto);
+  font-family: "Crimson Pro", Georgia, serif;
+  font-size: 18px;
+}
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ── topo ── */
+.topo { padding: 48px 16px 24px; text-align: center; }
+.topo h1 {
+  margin: 0;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(32px, 6vw, 56px);
+  letter-spacing: .04em;
+  color: var(--ouro);
+  text-shadow: 0 2px 0 #000, 0 0 30px rgba(226, 177, 60, .25);
+}
+.subtitulo { margin: 8px 0 0; color: var(--texto-suave); font-size: 20px; font-style: italic; }
+
+/* ── barra de filtros ── */
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px max(16px, calc((100vw - 1400px) / 2));
+  background: rgba(29, 26, 23, .92);
+  backdrop-filter: blur(8px);
+  border-block: 1px solid var(--linha);
+}
+.filtros, .controles { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+.chip, .campo input, .campo select, .botao {
+  font: inherit;
+  font-size: 16px;
+  color: var(--texto);
+  background: var(--fundo-2);
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  padding: 7px 14px;
+  min-height: 38px;
+}
+.chip { cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.chip:hover { border-color: #6b5f50; }
+.chip.ativo { background: var(--texto); color: var(--fundo); border-color: var(--texto); }
+.contagem { font-size: 13px; opacity: .7; font-variant-numeric: tabular-nums; }
+.ponto { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.ponto.cidade-estado { background: var(--cidade); }
+.ponto.reino { background: var(--reino); }
+.ponto.imperio { background: var(--imperio); }
+
+.campo select { border-radius: 10px; cursor: pointer; }
+.campo input { border-radius: 10px; width: 190px; }
+.campo input::placeholder { color: var(--texto-suave); }
+.chip:focus-visible, .campo :focus-visible, .botao:focus-visible { outline: 2px solid var(--ouro); outline-offset: 2px; }
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: var(--ouro);
+  color: #1d1a17;
+  border-color: var(--ouro);
+  border-radius: 10px;
+  font-weight: 600;
+}
+.botao svg { width: 18px; height: 18px; }
+.botao:hover { filter: brightness(1.08); }
+
+/* ── grade ── */
+main { padding: 16px; max-width: 1432px; margin: 0 auto; }
+.resumo { margin: 4px 0 16px; color: var(--texto-suave); font-size: 15px; }
+.grade {
+  --escala: 1mm;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, calc(63 * var(--escala)));
+  justify-content: center;
+  gap: 28px 24px;
+}
+.grade .carta {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .55);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.grade .carta:hover { transform: translateY(-4px) rotate(-.4deg); box-shadow: 0 18px 34px rgba(0, 0, 0, .65); }
+.grade .carta[hidden] { display: none; }
+.vazio { text-align: center; color: var(--texto-suave); padding: 48px 0; }
+
+.pe { padding: 32px 16px 48px; text-align: center; color: var(--texto-suave); font-size: 15px; max-width: 720px; margin: 0 auto; }
+
+@media (max-width: 640px) {
+  .barra { position: static; }
+  .controles { width: 100%; }
+  .campo.busca, .campo.busca input { flex: 1; width: 100%; }
+}
+
+/* Impressão direta desta página: cartas lado a lado, sem a interface. */
+@media print {
+  @page { size: A4; margin: 10mm; }
+  body { background: #fff; }
+  .topo, .barra, .resumo, .pe { display: none; }
+  main { padding: 0; max-width: none; }
+  .grade { --escala: 1mm !important; gap: 0; grid-template-columns: repeat(3, 63mm); }
+  .grade .carta { box-shadow: none; transform: none; }
+}

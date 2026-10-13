@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 200 230" width="200" height="230">
+  <defs>
+    <clipPath id="c"><circle cx="100" cy="110" r="85"/></clipPath>
+    <radialGradient id="brilho" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.28"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="100" cy="196" rx="62" ry="6" fill="#000" opacity="0.18"/>
+  <g clip-path="url(#c)"><rect x="0" y="20" width="100.5" height="180" fill="#FFE000"/><rect x="100" y="20" width="100.5" height="180" fill="#FFFFFF"/><g transform="translate(150 155) rotate(40)"><rect x="-3" y="-24" width="6" height="40" fill="#D4AF37"/><circle cx="0" cy="-26" r="7" fill="none" stroke="#D4AF37" stroke-width="4"/><rect x="0" y="8" width="10" height="5" fill="#D4AF37"/></g>
+     <g transform="translate(150 155) rotate(-40)"><rect x="-3" y="-24" width="6" height="40" fill="#A9A9A9"/><circle cx="0" cy="-26" r="7" fill="none" stroke="#A9A9A9" stroke-width="4"/><rect x="-10" y="8" width="10" height="5" fill="#A9A9A9"/></g><circle cx="100" cy="110" r="85" fill="url(#brilho)"/></g>
+  <circle cx="100" cy="110" r="85" fill="none" stroke="#111" stroke-width="5"/>
+  <ellipse cx="78" cy="104" rx="14" ry="19" fill="#fff" stroke="#111" stroke-width="4"/>
+  <ellipse cx="128" cy="104" rx="14" ry="19" fill="#fff" stroke="#111" stroke-width="4"/>
+  
+  <g transform="translate(100 28) rotate(-8)">
+      <path d="M-28,6 L-28,-26 L0,-58 L28,-26 L28,6 Z" fill="#FFFFFF" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+      <rect x="-4" y="-44" width="8" height="40" fill="#D4AF37"/><rect x="-14" y="-32" width="28" height="8" fill="#D4AF37"/></g>
+</svg>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cartas do Império</title>
+  <meta name="description" content="Todas as cartas do jogo Cartas do Império: cidades-estado, reinos e impérios da história.">
+  <link rel="icon" href="img/bolas/romano.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="css/carta.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-conteudo">
+      <h1>Cartas do Império</h1>
+      <p class="subtitulo">Cidades-estado, reinos e impérios que marcaram a história.</p>
+    </div>
+  </header>
+
+  <nav class="barra" aria-label="Filtros">
+    <div class="filtros" role="group" aria-label="Tipo">
+      <button type="button" class="chip ativo" data-filtro="todos">Todas <span class="contagem"></span></button>
+      <button type="button" class="chip" data-filtro="cidade-estado"><i class="ponto cidade-estado"></i>Cidades-Estado <span class="contagem"></span></button>
+      <button type="button" class="chip" data-filtro="reino"><i class="ponto reino"></i>Reinos <span class="contagem"></span></button>
+      <button type="button" class="chip" data-filtro="imperio"><i class="ponto imperio"></i>Impérios <span class="contagem"></span></button>
+    </div>
+    <div class="controles">
+      <label class="campo busca"><span class="sr">Buscar</span>
+        <input type="search" id="busca" placeholder="Buscar carta…" autocomplete="off">
+      </label>
+      <label class="campo"><span class="sr">Ordenar</span>
+        <select id="ordem">
+          <option value="numero">Ordem do baralho</option>
+          <option value="nome">Nome (A–Z)</option>
+          <option value="area-desc">Maior área</option>
+          <option value="area-asc">Menor área</option>
+        </select>
+      </label>
+      <label class="campo"><span class="sr">Tamanho</span>
+        <select id="zoom">
+          <option value="0.8">80%</option>
+          <option value="1" selected>Tamanho real</option>
+          <option value="1.25">125%</option>
+          <option value="1.5">150%</option>
+        </select>
+      </label>
+      <a class="botao" href="imprimir.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        Imprimir (A4)
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <p class="resumo" id="resumo" aria-live="polite"></p>
+    <section class="grade" id="grade"></section>
+    <p class="vazio" id="vazio" hidden>Nenhuma carta encontrada.</p>
+  </main>
+
+  <footer class="pe">
+    <p>Cartas em tamanho real de 63 × 88 mm. Mapas aproximados, desenhados sobre fronteiras atuais (Natural Earth). Áreas aproximadas no auge de cada território.</p>
+  </footer>
+
+  <script src="data/cartas.js"></script>
+  <script src="js/cartas.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

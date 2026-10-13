@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imprimir Cartas</title>
+  <meta name="description" content="Versão para impressão em A4 das Cartas do Império: 9 cartas de 63 × 88 mm por folha, com marcas de corte.">
+  <link rel="icon" href="img/bolas/romano.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="css/carta.css">
+  <link rel="stylesheet" href="css/imprimir.css">
+</head>
+<body>
+  <header class="painel">
+    <a class="voltar" href="index.html">← Voltar às cartas</a>
+    <div class="painel-corpo">
+      <div>
+        <h1>Impressão em A4</h1>
+        <p>9 cartas por folha, em tamanho real (63 × 88 mm). Na janela de impressão escolha <strong>papel A4</strong>, <strong>escala 100%</strong> (ou “tamanho real”), <strong>margens: nenhuma</strong> e ative <strong>gráficos de fundo</strong>.</p>
+      </div>
+      <form class="opcoes" id="opcoes">
+        <fieldset>
+          <legend>Tipos</legend>
+          <label><input type="checkbox" name="tipo" value="cidade-estado" checked> Cidades-Estado</label>
+          <label><input type="checkbox" name="tipo" value="reino" checked> Reinos</label>
+          <label><input type="checkbox" name="tipo" value="imperio" checked> Impérios</label>
+        </fieldset>
+        <fieldset>
+          <legend>Layout</legend>
+          <label><input type="checkbox" id="marcas" checked> Marcas de corte</label>
+          <label><input type="checkbox" id="espaco"> Espaço de 3 mm entre cartas</label>
+        </fieldset>
+        <button type="button" id="imprimir">Imprimir</button>
+      </form>
+    </div>
+    <p class="info" id="info" aria-live="polite"></p>
+  </header>
+
+  <main id="folhas" class="folhas com-marcas"></main>
+
+  <script src="data/cartas.js"></script>
+  <script src="js/cartas.js"></script>
+  <script src="js/imprimir.js"></script>
+</body>
+</html>

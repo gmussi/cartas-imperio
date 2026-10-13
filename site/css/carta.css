@@ -1,0 +1,210 @@
+/*
+ * A carta. Todas as medidas são múltiplos de --u (1 milímetro na escala 100%).
+ * Tamanho: 63 × 88 mm — o mesmo de uma carta de Magic: The Gathering.
+ */
+.carta {
+  --u: var(--escala, 1mm);
+  --bezel: #17130f;
+  --pergaminho: #f5edd8;
+  --pergaminho-claro: #faf5e8;
+  --tinta: #2a2118;
+
+  width: calc(63 * var(--u));
+  height: calc(88 * var(--u));
+  padding: calc(2.6 * var(--u));
+  border-radius: calc(3.2 * var(--u));
+  background: var(--bezel);
+  box-sizing: border-box;
+  position: relative;
+  flex: none;
+  color: var(--tinta);
+  font-family: "Crimson Pro", Georgia, serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  break-inside: avoid;
+}
+.carta *, .carta *::before, .carta *::after { box-sizing: border-box; }
+
+.tipo-cidade-estado { --c1: #33a088; --c2: #145a4a; --acento: #1e8a70; --friso: #c79a5b; }
+.tipo-reino         { --c1: #4472d6; --c2: #1a3378; --acento: #2b59c3; --friso: #d3dae6; }
+.tipo-imperio       { --c1: #c4362c; --c2: #5e120d; --acento: #b3261e; --friso: #e2b13c; }
+
+.moldura {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: calc(1.1 * var(--u));
+  padding: calc(1.5 * var(--u));
+  border-radius: calc(1.6 * var(--u));
+  background:
+    radial-gradient(120% 60% at 30% 0%, rgba(255,255,255,.18), transparent 60%),
+    linear-gradient(160deg, var(--c1), var(--c2));
+  box-shadow: inset 0 0 0 calc(0.35 * var(--u)) var(--friso);
+}
+
+/* ── título ── */
+.titulo {
+  position: relative;
+  min-height: calc(10 * var(--u));
+  padding: calc(1 * var(--u)) calc(15 * var(--u)) calc(0.8 * var(--u)) calc(2.2 * var(--u));
+  border-radius: calc(1.4 * var(--u));
+  background: linear-gradient(180deg, var(--pergaminho-claro), var(--pergaminho));
+  border: calc(0.45 * var(--u)) solid var(--friso);
+  box-shadow: 0 calc(0.3 * var(--u)) calc(0.6 * var(--u)) rgba(0,0,0,.35);
+}
+.nome {
+  margin: 0;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  font-size: calc(4.5 * var(--u) * var(--ajuste, 1));
+  line-height: 1.05;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.oficial {
+  margin: calc(0.3 * var(--u)) 0 0;
+  font-size: calc(2.45 * var(--u) * var(--ajuste, 1));
+  font-style: italic;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: .8;
+}
+
+/* ── countryball no canto superior ── */
+.bola {
+  position: absolute;
+  top: calc(-1.4 * var(--u));
+  right: calc(0.6 * var(--u));
+  width: calc(17.5 * var(--u));
+  height: auto;
+  filter: drop-shadow(0 calc(0.4 * var(--u)) calc(0.5 * var(--u)) rgba(0,0,0,.45));
+  z-index: 2;
+}
+
+/* ── mapa ── */
+.mapa {
+  margin: 0;
+  aspect-ratio: 550 / 300;
+  border-radius: calc(0.8 * var(--u));
+  overflow: hidden;
+  border: calc(0.45 * var(--u)) solid var(--friso);
+  background: #bfd8de;
+  box-shadow: inset 0 0 calc(1.2 * var(--u)) rgba(0,0,0,.35);
+}
+.mapa img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ── linha de tipo ── */
+.linha-tipo {
+  display: flex;
+  align-items: center;
+  gap: calc(1 * var(--u));
+  height: calc(6 * var(--u));
+  padding: 0 calc(1.8 * var(--u));
+  border-radius: calc(1.4 * var(--u));
+  background: linear-gradient(180deg, var(--pergaminho-claro), var(--pergaminho));
+  border: calc(0.45 * var(--u)) solid var(--friso);
+  box-shadow: 0 calc(0.3 * var(--u)) calc(0.6 * var(--u)) rgba(0,0,0,.3);
+}
+.icone {
+  display: grid;
+  place-items: center;
+  width: calc(4.2 * var(--u));
+  height: calc(4.2 * var(--u));
+  border-radius: 50%;
+  background: var(--acento);
+  color: #fff;
+  flex: none;
+}
+.icone svg { width: 72%; height: 72%; }
+.tipo {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  font-size: calc(3.1 * var(--u));
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--acento);
+  white-space: nowrap;
+}
+.tipo-cidade-estado .tipo { font-size: calc(2.75 * var(--u)); letter-spacing: .02em; }
+.periodo {
+  margin-left: auto;
+  font-size: calc(2.4 * var(--u));
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── caixa de texto ── */
+.caixa-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: calc(1 * var(--u));
+  padding: calc(1.5 * var(--u)) calc(2.2 * var(--u));
+  border-radius: calc(1 * var(--u));
+  background: var(--pergaminho-claro);
+  border: calc(0.35 * var(--u)) solid rgba(0,0,0,.25);
+  min-height: 0;
+}
+.area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: calc(0.8 * var(--u));
+  border-bottom: calc(0.25 * var(--u)) solid rgba(0,0,0,.18);
+}
+.area .rotulo, .dados dt {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: calc(1.9 * var(--u));
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.area .valor {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 700;
+  font-size: calc(4.4 * var(--u));
+  line-height: 1.1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.area small { font-size: .6em; }
+.dados {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: calc(2 * var(--u));
+}
+.dados div { min-width: 0; }
+.dados div + div { text-align: right; }
+.dados dd {
+  margin: 0;
+  font-size: calc(2.7 * var(--u) * var(--ajuste, 1));
+  font-weight: 600;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.texto {
+  margin: auto 0 0;
+  font-size: calc(2.55 * var(--u));
+  font-style: italic;
+  line-height: 1.2;
+  text-wrap: pretty;
+}
+
+/* ── rodapé ── */
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 calc(1 * var(--u));
+  font-family: "Cinzel", Georgia, serif;
+  font-size: calc(1.8 * var(--u));
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.85);
+  margin-top: calc(-0.3 * var(--u));
+}

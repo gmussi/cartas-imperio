@@ -1,0 +1,93 @@
+/* Folhas A4 (210 × 297 mm) com 3 × 3 cartas de 63 × 88 mm. */
+@page { size: A4 portrait; margin: 0; }
+
+:root {
+  --fundo: #4a4440;
+  --texto: #f3ecdc;
+  --ouro: #e2b13c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Crimson Pro", Georgia, serif;
+  font-size: 17px;
+}
+
+/* ── painel de opções (só na tela) ── */
+.painel { max-width: 210mm; margin: 0 auto; padding: 24px 16px 8px; }
+.voltar { color: var(--ouro); text-decoration: none; font-weight: 600; }
+.voltar:hover { text-decoration: underline; }
+.painel h1 { font-family: "Cinzel", Georgia, serif; margin: 12px 0 4px; font-size: 28px; color: var(--ouro); }
+.painel p { margin: 0 0 12px; line-height: 1.4; }
+.painel-corpo { display: grid; gap: 12px; }
+.opcoes { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.opcoes fieldset { border: 1px solid #6f6660; border-radius: 10px; padding: 6px 12px 10px; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.opcoes legend { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; opacity: .75; padding: 0 4px; }
+.opcoes label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.opcoes input { accent-color: var(--ouro); width: 16px; height: 16px; }
+#imprimir {
+  font: inherit; font-weight: 700; font-size: 17px;
+  background: var(--ouro); color: #1d1a17; border: 0; border-radius: 10px;
+  padding: 10px 22px; cursor: pointer; min-height: 44px;
+}
+#imprimir:hover { filter: brightness(1.08); }
+#imprimir:focus-visible, .opcoes input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.info { opacity: .8; font-size: 15px; }
+
+/* ── folhas ── */
+.folhas { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 16px 0 48px; }
+
+.folha {
+  width: 210mm;
+  height: 297mm;
+  flex: none;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .45);
+  overflow: hidden;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.folha + .folha { break-before: page; }
+
+.grade-folha {
+  --gap: 0mm;
+  --escala: 1mm;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 63mm);
+  grid-auto-rows: 88mm;
+  gap: var(--gap);
+}
+
+/* marcas de corte: traços finos fora da grade */
+.marca { position: absolute; display: none; background: #555; }
+.com-marcas .marca { display: block; }
+.marca.v { left: var(--x); width: .2mm; margin-left: -.1mm; }
+.marca.h { top: var(--y); height: .2mm; margin-top: -.1mm; }
+.marca.v::before, .marca.v::after,
+.marca.h::before, .marca.h::after { content: ""; position: absolute; background: #555; }
+.marca.v { top: -7mm; height: calc(100% + 14mm); background: none; }
+.marca.v::before { top: 0; height: 5mm; width: 100%; }
+.marca.v::after  { bottom: 0; height: 5mm; width: 100%; }
+.marca.h { left: -7mm; width: calc(100% + 14mm); background: none; }
+.marca.h::before { left: 0; width: 5mm; height: 100%; }
+.marca.h::after  { right: 0; width: 5mm; height: 100%; }
+
+/* Em telas pequenas, encolhe a pré-visualização (não afeta a impressão). */
+@media screen and (max-width: 820px) {
+  .folhas { zoom: .45; }
+}
+
+@media print {
+  body { background: #fff; }
+  .painel { display: none; }
+  .folhas { display: block; padding: 0; zoom: 1; }
+  /* contain evita que as marcas de corte criem uma página extra em branco */
+  .folha { box-shadow: none; margin: 0; height: 296.5mm; contain: strict; }
+}
